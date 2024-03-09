@@ -17,6 +17,21 @@ public class Invoice {
 	private BigDecimal totalPrice;
 	private Order order;
 
+	public Invoice(LocalDateTime date, Order order) {
+		this.date = date;
+		this.order = order;
+		setTotalPrice();
+	}
+
+	public void setTotalPrice() {
+		BigDecimal total = BigDecimal.ZERO;
+
+		for (Product p : order.getProducts()) {
+			total = total.add(p.getPrice());
+		}
+		this.totalPrice = total;
+	}
+
 	@Override
 	public String toString() {
 		return "Invoice{" +

@@ -23,7 +23,6 @@ public class Customer {
 				"name='" + name + '\'' +
 				", surname='" + surname + '\'' +
 				", sector='" + sector + '\'' +
-				", orders=" + orders +
 				'}';
 	}
 }
