@@ -6,7 +6,7 @@ import com.n11.entity.Order;
 import com.n11.entity.Product;
 import lombok.Getter;
 
-import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,17 +17,17 @@ public class ApplicationRepository {
 	private List<Invoice> invoiceList;
 
 	public ApplicationRepository() {
-		Customer alice = new Customer("Alice", "Kong", "finance", new ArrayList<>());
-		Customer bob = new Customer("Bob", "Johnson", "healthcare", new ArrayList<>());
-		Customer charlie = new Customer("Charlie", "Brown", "education", new ArrayList<>());
-		Customer david = new Customer("David", "Williams", "it", new ArrayList<>());
-		Customer emily = new Customer("Emily", "Jones", "food", new ArrayList<>());
+		Customer alice = new Customer("Alice", "Kong", "finance", LocalDate.of(2023, 6, 10), new ArrayList<>());
+		Customer bob = new Customer("Bob", "Johnson", "healthcare", LocalDate.now(), new ArrayList<>());
+		Customer charlie = new Customer("Charlie", "Brown", "education", LocalDate.now(), new ArrayList<>());
+		Customer david = new Customer("David", "Williams", "it", LocalDate.now(), new ArrayList<>());
+		Customer emily = new Customer("Emily", "Jones", "food", LocalDate.now(), new ArrayList<>());
 
-		Product shoe = new Product("shoe", BigDecimal.valueOf(2000));
-		Product sunglasses = new Product("sunglasses",  BigDecimal.valueOf(100));
-		Product magazine = new Product("magazine", BigDecimal.valueOf(15));
-		Product diary = new Product("diary", BigDecimal.valueOf(40));
-		Product pencil = new Product("pencil", BigDecimal.valueOf(5));
+		Product shoe = new Product("shoe", 2000.0);
+		Product sunglasses = new Product("sunglasses",  100.0);
+		Product magazine = new Product("magazine", 15.0);
+		Product diary = new Product("diary", 40.0);
+		Product pencil = new Product("pencil", 5.0);
 
 		Order aliceOrder = new Order(alice, List.of(shoe, sunglasses));
 		Order bobOrder = new Order(bob, List.of(magazine, sunglasses));
