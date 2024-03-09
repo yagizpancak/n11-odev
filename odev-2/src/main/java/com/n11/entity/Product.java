@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.math.BigDecimal;
 
 @Getter
 @Setter
@@ -13,7 +12,7 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 public class Product {
 	private String name;
-	private BigDecimal price;
+	private Double price;
 
 	@Override
 	public String toString() {

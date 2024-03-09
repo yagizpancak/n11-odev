@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Getter
@@ -14,7 +13,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class Invoice {
 	private LocalDateTime date;
-	private BigDecimal totalPrice;
+	private Double totalPrice;
 	private Order order;
 
 	public Invoice(LocalDateTime date, Order order) {
@@ -24,12 +23,7 @@ public class Invoice {
 	}
 
 	public void setTotalPrice() {
-		BigDecimal total = BigDecimal.ZERO;
-
-		for (Product p : order.getProducts()) {
-			total = total.add(p.getPrice());
-		}
-		this.totalPrice = total;
+		this.totalPrice = order.getProducts().stream().mapToDouble(Product::getPrice).sum();
 	}
 
 	@Override

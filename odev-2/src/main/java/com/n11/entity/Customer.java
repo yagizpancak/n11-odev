@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Getter
@@ -15,6 +16,7 @@ public class Customer {
 	private String name;
 	private String surname;
 	private String sector;
+	private LocalDate registerDate;
 	private List<Order> orders;
 
 	@Override
